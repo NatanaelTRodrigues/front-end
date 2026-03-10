@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-br" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhe do Produto | Absolut Auto</title>
+    <link rel="stylesheet" href="atvd-1.css" />
+    <script>
+      // Apply saved theme early to avoid flash
+      try{document.documentElement.setAttribute('data-theme', localStorage.getItem('abs_theme')||'light')}catch(e){}
+    </script>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">
+        <a href="atvd-1.html" class="logo-link" aria-label="Home">
+          <img
+            src="./icon/icon-Absolut.png"
+            alt="Logo Absolut Auto"
+            width="200"
+            height="100"
+          />
+        </a>
+      </div>
+
+      <nav class="header-actions">
+        <div class="nav-top">
+          <button class="ui-button nav-btn" onclick="location.href='atvd-1.html#veiculos'">Carros</button>
+          <button class="ui-button nav-btn" onclick="location.href='atvd-1.html#pecas'">Peças</button>
+          <button class="ui-button nav-btn" onclick="location.href='atvd-1.html#pecas'">Promoções</button>
+        </div>
+
+        <div class="right-actions">
+          <button id="theme-toggle" class="ui-button" aria-label="Trocar Tema">
+            <span class="mode-icon">🌙</span>
+          </button>
+
+          <div class="cart-wrapper">
+            <button id="cart-btn" class="ui-button" title="Ver carrinho">
+              <span class="cart-icon">🛒</span>
+              <span id="cart-count">0</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+    <main id="detail-root" class="fade-in">
+      <div class="container">
+        <button class="btn-back" id="btn-back">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            style="margin-right: 8px"
+          >
+            <path
+              d="M15 18l-6-6 6-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Voltar para a vitrine
+        </button>
+
+        <div class="detail-container">
+          <div class="detail-gallery">
+            <div id="main-detail-img" class="main-img-large"></div>
+            <div id="detail-thumbs" class="thumb-list"></div>
+          </div>
+
+          <div class="detail-info">
+            <span class="detail-badge" id="detail-cat">Categoria</span>
+            <h2 id="detail-title">Nome do Produto</h2>
+            <p id="detail-desc">Descrição...</p>
+
+            <!-- removed local cart panel; site uses header cart and cart.html -->
+
+            <div class="specs-box">
+              <h4>Especificações Técnicas</h4>
+              <ul id="detail-specs-list"></ul>
+            </div>
+
+            <div class="price-action">
+              <p class="detail-price" id="detail-price">R$ 0,00</p>
+              <button id="detail-add-btn" class="btn-primary">
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="data.js"></script>
+    <script type="module" src="detail.js"></script>
+  </body>
+</html>

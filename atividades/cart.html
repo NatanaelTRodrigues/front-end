@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-br" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Carrinho — Absolut Auto</title>
+    <link rel="stylesheet" href="atvd-1.css" />
+    <script>
+      try{document.documentElement.setAttribute('data-theme', localStorage.getItem('abs_theme')||'light')}catch(e){}
+    </script>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">
+        <a href="atvd-1.html" class="logo-link" aria-label="Home">
+          <img src="./icon/icon-Absolut.png" alt="Logo" width="180" height="80" />
+        </a>
+      </div>
+      <nav class="header-actions">
+        <div class="right-actions">
+          <button id="theme-toggle" class="ui-button" aria-label="Trocar Tema"><span class="mode-icon">🌙</span></button>
+          <button id="back-store" class="ui-button">Voltar à Loja</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Seu Carrinho</h1>
+      <div id="cart-root">
+        <div id="cart-list"></div>
+        <div class="cart-summary">
+          <div>Total: <strong id="cart-total-amount">R$ 0,00</strong></div>
+          <div>
+            <button id="cart-clear" class="ui-button">Limpar Carrinho</button>
+            <button id="cart-checkout" class="btn-checkout">Finalizar Compra</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="checkout-overlay" class="checkout-overlay"><div class="loader">...</div></div>
+
+    <script src="cart.js"></script>
+  </body>
+</html>
