@@ -555,8 +555,10 @@
     const root = document.getElementById("product-detail-view");
     if (!root) return;
     root.classList.remove("hidden");
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    // Scroll para baixo mostrando a seção de detalhes
+    setTimeout(() => {
+      root.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
     document.getElementById("detail-title").innerText = item.nome;
     document.getElementById("detail-desc").innerText = item.desc || "";
     document.getElementById("detail-cat").innerText =
@@ -606,71 +608,6 @@
   };
 
   // ---------- CARRINHO (página única) ----------
-  function renderCartPage() {
-    const root = document.getElementById("cart-page");
-    if (!root) return;
-    root.classList.remove("hidden");
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-    const list = root.querySelector("#cart-list");
-    list.innerHTML = "";
-    const cart = getCart();
-    // agrupar por category
-    const groups = {};
-    cart.forEach((it) => {
-      const key =
-        it.type || it.category || (it.usado ? "Usados" : "Novos") || "Outros";
-      if (!groups[key]) groups[key] = [];
-      groups[key].push(it);
-    });
-    Object.keys(groups).forEach((k) => {
-      const groupEl = document.createElement("div");
-      groupEl.className = "cart-group";
-      groupEl.innerHTML = `<h4>${k}</h4><ul class="cart-group-list"></ul>`;
-      const ul = groupEl.querySelector("ul");
-      groups[k].forEach((it) => {
-        const li = document.createElement("li");
-        li.className = "cart-item";
-        li.innerHTML = `<div class="ci-left"><div class="ci-thumb"></div><div><strong>${it.nome}</strong><div class="ci-meta">${it.usado ? `Usado • ${it.km || 0} km` : ""}</div></div></div><div class="ci-right"><strong>${formatPrice(it.preco)}</strong><button class="btn-remove small">Remover</button></div>`;
-        renderImage(
-          li.querySelector(".ci-thumb"),
-          (it.imgs && it.imgs[0]) || it.img,
-        );
-        li.querySelector(".btn-remove").onclick = () => {
-          removeItemFromCart(it.cartId);
-          renderCartPage();
-        };
-        ul.appendChild(li);
-      });
-      list.appendChild(groupEl);
-    });
-    root.querySelector("#cart-total-amount").innerText =
-      formatPrice(getCartTotal());
-  }
-  function closeCartPage() {
-    const r = document.getElementById("cart-page");
-    if (r) r.classList.add("hidden");
-  }
-
-  function checkoutFlow() {
-    const btn = document.getElementById("cart-checkout");
-    if (!btn) return;
-    btn.onclick = () => {
-      const overlay = document.getElementById("checkout-overlay");
-      overlay.classList.add("active");
-      setTimeout(() => {
-        overlay.querySelector(".loader").classList.add("done");
-        overlay.querySelector(".loader").innerText = "✓";
-        setTimeout(() => {
-          overlay.classList.remove("active");
-          saveCart([]);
-          updateHeaderCount();
-          renderCartPage();
-          alert("Compra simulada concluída — obrigado!");
-        }, 900);
-      }, 1500);
-    };
-  }
 
   // ---------- INICIALIZAÇÃO e BINDs ----------
   document.addEventListener("DOMContentLoaded", () => {
@@ -694,15 +631,9 @@
       cartBtn.onclick = () => {
         window.location.href = "cart.html";
       };
-    const closeCartBtn = document.getElementById("close-cart-page");
-    if (closeCartBtn) closeCartBtn.onclick = () => closeCartPage();
     // render
     renderPecasGrouped();
     renderVeiculosGrouped();
     updateHeaderCount();
-    // cart page bindings
-    const closeCartPageBtn = document.getElementById("cart-close");
-    if (closeCartPageBtn) closeCartPageBtn.onclick = () => closeCartPage();
-    checkoutFlow();
   });
 })();

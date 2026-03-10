@@ -1,44 +1,135 @@
 <!doctype html>
 <html lang="pt-br" data-theme="light">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Carrinho — Absolut Auto</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho | Absolut Auto-Peças</title>
     <link rel="stylesheet" href="atvd-1.css" />
-    <script>
-      try{document.documentElement.setAttribute('data-theme', localStorage.getItem('abs_theme')||'light')}catch(e){}
-    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="main-header">
       <div class="logo">
         <a href="atvd-1.html" class="logo-link" aria-label="Home">
-          <img src="./icon/icon-Absolut.png" alt="Logo" width="180" height="80" />
+          <img
+            src="./icon/Icon-Absolut.svg"
+            alt="Logo Absolut Auto"
+            width="200"
+            height="100"
+          />
         </a>
+        <nav class="nav-top">
+          <button
+            class="ui-button nav-btn"
+            onclick="location.href = 'atvd-1.html#veiculos'"
+          >
+            Carros
+          </button>
+          <button class="ui-button nav-btn" onclick="location.href = 'atvd-1.html#pecas'">
+            Peças
+          </button>
+          <button class="ui-button nav-btn" onclick="location.href = 'atvd-1.html#pecas'">
+            Promoções
+          </button>
+        </nav>
       </div>
+
       <nav class="header-actions">
         <div class="right-actions">
-          <button id="theme-toggle" class="ui-button" aria-label="Trocar Tema"><span class="mode-icon">🌙</span></button>
-          <button id="back-store" class="ui-button">Voltar à Loja</button>
+          <button id="theme-toggle" class="ui-button" aria-label="Trocar Tema">
+            <span class="mode-icon">🌙</span>
+          </button>
         </div>
       </nav>
     </header>
 
-    <main class="container">
-      <h1>Seu Carrinho</h1>
-      <div id="cart-root">
-        <div id="cart-list"></div>
-        <div class="cart-summary">
-          <div>Total: <strong id="cart-total-amount">R$ 0,00</strong></div>
-          <div>
-            <button id="cart-clear" class="ui-button">Limpar Carrinho</button>
-            <button id="cart-checkout" class="btn-checkout">Finalizar Compra</button>
+    <main id="app-content" class="fade-in">
+      <div class="container">
+        <button class="btn-back" onclick="location.href = 'atvd-1.html'">
+          <span class="arrow">←</span> Continuar Comprando
+        </button>
+
+        <h1 style="margin: 40px 0 30px 0; font-size: 2rem;">Seu Carrinho</h1>
+
+        <div id="cart-empty" class="cart-empty-state" style="display: none; text-align: center; padding: 60px 20px;">
+          <p style="font-size: 3rem; margin-bottom: 20px;">🛒</p>
+          <h2 style="color: var(--text-sec); margin-bottom: 20px;">Seu carrinho está vazio</h2>
+          <p style="color: var(--text-sec); margin-bottom: 30px;">Volte e escolha seus produtos favoritos</p>
+          <a href="atvd-1.html" class="btn-primary" style="display: inline-block;">Voltar à Loja</a>
+        </div>
+
+        <div id="cart-content" style="display: block;">
+          <div id="cart-list"></div>
+
+          <div class="cart-summary-div" style="margin-top: 40px; padding: 30px; background: var(--card-bg); border-radius: 20px; border: 1px solid rgba(0, 0, 0, 0.06);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
+              <span style="font-size: 1.1rem; font-weight: 700;">Subtotal:</span>
+              <span id="cart-subtotal" style="font-size: 1.2rem; font-weight: 600;">R$ 0,00</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <span style="font-size: 1.1rem; font-weight: 700;">Total de Itens:</span>
+              <span id="cart-item-count" style="font-size: 1.2rem; font-weight: 600;">0</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-top: 20px; border-top: 2px solid var(--accent); gap: 20px;">
+              <span style="font-size: 1.4rem; font-weight: 800;">Total:</span>
+              <span id="cart-total-amount" style="font-size: 1.8rem; font-weight: 800; color: var(--accent);">R$ 0,00</span>
+            </div>
+
+            <div style="display: flex; gap: 12px;">
+              <button id="cart-continue-btn" class="btn-secondary" style="flex: 1; padding: 14px;">
+                Continuar Comprando
+              </button>
+              <button id="cart-checkout" class="btn-checkout" style="flex: 1; padding: 14px;">
+                Finalizar Compra
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </main>
 
-    <div id="checkout-overlay" class="checkout-overlay"><div class="loader">...</div></div>
+    <div id="checkout-overlay" class="checkout-overlay">
+      <div class="loader">Processando...</div>
+    </div>
+
+    <footer class="main-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 12px">
+            <img
+              src="icon\Icon-Absolut.svg"
+              alt="Logo Absolut Auto"
+              width="160"
+              height="160"
+            />
+            <div>
+              <p><strong>Absolut Auto-Peças</strong></p>
+              <p style="font-size: 0.9rem; color: var(--text-sec)">
+                Brasília, DF • Setor de Oficinas
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="atvd-1.html#pecas">Peças</a>
+          <a href="atvd-1.html#veiculos">Veículos</a>
+          <a href="atvd-1.html#pecas">Promoções</a>
+          <a href="#">Contato</a>
+        </div>
+
+        <div class="footer-copy">
+          <p>&copy; 2026 Engineered for Excellence.</p>
+          <p style="font-size: 0.85rem; color: var(--text-sec)">
+            Atendimento: contato@absolutauto.com
+          </p>
+        </div>
+      </div>
+    </footer>
 
     <script src="cart.js"></script>
   </body>

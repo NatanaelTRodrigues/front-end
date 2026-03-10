@@ -677,3 +677,29 @@ body {
   font-size: 22px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
+
+/* Cart empty state */
+.cart-empty-state {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cart summary styling */
+.cart-summary-div {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 600px) {
+  .cart-summary-div {
+    margin-top: 20px;
+    padding: 20px;
+  }
+  
+  .ci-thumb {
+    width: 60px !important;
+    height: 45px !important;
+  }
+}
