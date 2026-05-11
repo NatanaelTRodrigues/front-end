@@ -43,7 +43,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
     return false;
   };
-
   const logout = () => {
     dispatch({ type: 'LOGOUT' });
   };
