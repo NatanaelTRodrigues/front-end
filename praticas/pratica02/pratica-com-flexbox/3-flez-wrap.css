@@ -13,7 +13,11 @@
 	max-width: 360px;
 	margin: 0 auto;
 	display: flex;
+<<<<<<< HEAD
 	border: 2px solid #ccc;
+=======
+	border: 1px solid #ccc;
+>>>>>>> b4597c29483c198f8f26f62156d213050e8e9e8d
 }
 .container-fluid {
 	max-width: 900px;

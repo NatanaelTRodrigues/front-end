@@ -4,12 +4,15 @@
 .column-nowrap {
 	flex-flow: column nowrap;
 }
+<<<<<<< HEAD
 .column-wrap {
 	flex-flow: column wrap;
 }
 .column-wrap-reverse {
 	flex-flow: column wrap-reverse;
 }
+=======
+>>>>>>> b4597c29483c198f8f26f62156d213050e8e9e8d
 .row-wrap {
 	flex-flow: row wrap;
 }

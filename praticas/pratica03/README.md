@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📑 Tópicos
 
 - Tudo é Objeto
@@ -146,3 +147,8 @@ const vencedor = grupoA > grupoB ? "Grupo A" : "Grupo B";
 const active = true;
 const button = active && "Botão está ativo"; // Curto-circuito
 ```
+=======
+- Demonstração do Figma.
+
+- **Missão:** O professor disponibilizará o link de um protótipo simples no Figma. Os alunos deverão inspecionar o layout no Figma (margens, cores, tipografia) e reproduzir essa interface fielmente utilizando HTML5 e CSS3.
+>>>>>>> b4597c29483c198f8f26f62156d213050e8e9e8d

@@ -20,6 +20,10 @@
 }
 
 .container {
+<<<<<<< HEAD
+=======
+	display: flex;
+>>>>>>> b4597c29483c198f8f26f62156d213050e8e9e8d
 	max-width: 400px;
 	margin: 0 auto;
 	border: 1px solid #ccc;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 name: "Prática 02"
 about: "Template para criar a issue da pratica02"
@@ -63,4 +64,9 @@ git push origin feature/pratica02
 - No GitHub, abra um Pull Request da sua branch feature/pratica02 para a branch develop.
 - Na descrição, adicione: Nesta prática, construí o layout da TechStore aplicando HTML5 semântico e CSS Flexbox. - Fecha #ID (substitua o ID pelo número desta Issue).
 - Envie o link do Pull Request na plataforma de ensino.
+=======
+- Instalação e configuração das ferramentas VSCode, NodeJS e Git/GitHub.
+
+- **Missão:** Criar uma página HTML simples (ex: um currículo pessoal ou página de perfil) e estilizá-la utilizando um arquivo CSS externo. Fazer o commit e abrir o primeiro Pull Request.
+>>>>>>> b4597c29483c198f8f26f62156d213050e8e9e8d
 
