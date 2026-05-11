@@ -1,13 +1,13 @@
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 type DefaultButtonProps = {
-  icon: React.ReactNode; 
-  color?: 'green' | 'red'; 
-} & React.ComponentProps<'button'>; 
+  icon: React.ReactNode;
+  color?: "green" | "red";
+} & React.ComponentProps<"button">;
 
 export function DefaultButton({
   icon,
-  color = 'green',
+  color = "green",
   ...props
 }: DefaultButtonProps) {
   return (

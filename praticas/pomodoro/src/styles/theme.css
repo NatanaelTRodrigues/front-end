@@ -1,4 +1,3 @@
-
 :root {
   /* 🎭 Tons de Cinza (cores dinâmicas que mudam entre claro/escuro) */
   --gray-100: #e6e9f0;
@@ -16,7 +15,7 @@
   /* Fundo principal do site */
 
   --primary-light: #ff0a0a;
-  --primary: #ff6200;
+  --primary: #2f00ff;
   --primary-dark: #01ff55;
 
   /* 🔗 Links */
@@ -38,9 +37,9 @@
   /* 🎨 Texto sobre fundos coloridos (para garantir contraste) */
   --text-over-primary: #0a0f1a;
   /* Texto sobre fundo primário */
-  --text-over-primary-dark: #e6e9f0;
+  --text-over-primary-dark: #2f00ff;
   /* Texto sobre variação escura */
-  --text-over-primary-light: #0a0f1a;
+  --text-over-primary-light: #0f0151;
   /* Texto sobre variação clara */
   --text-over-success: #0a0f1a;
   /* Texto sobre fundo sucesso */
@@ -52,7 +51,7 @@
   /* Texto sobre fundo informativo */
 
   /* 📝 Cores do Texto (dinâmicas) */
-  --text-default: #e6e9f0;
+  --text-default: #947cff;
   /* Cor padrão do texto */
   --text-muted: #aab3cc;
   /* Texto menos importante (placeholders, labels, etc.) */
