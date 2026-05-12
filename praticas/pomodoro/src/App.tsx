@@ -22,4 +22,4 @@ export function App() {
       </MessagesContainer>
     </TaskContextProvider>
   );
-}
+}// Entrega da atividade Pomodoro
